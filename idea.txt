@@ -1,0 +1,17 @@
+User can create "days" where they input either the exercises they do everytime, or ones that they could possibly do on that day. 
+They can configure what variables are measured on the day, sets, reps, rest time, time per rep, pause reps/other special variation 
+to the exercise
+
+Everytime user trains they select what day they are doing, and begin to fill in a table, autofill suggestion is suggested for the 
+exercise, and then whatever variable information they want to fill in is created and then they have to fill it in, once they 
+"complete" the day it will show up to them in full, they can choose to compare stats with the previous day of the same type 
+and get useful information showing improvements or just the increase/decrease comparison of the stats. 
+This can be expanded to show more previous sessions, weekly/monthly/yearly stats. What you improved at the most/least etc. 
+Just a bunch of interesting ways to display the stats. 
+
+It suggests autofill for weights sets and reps ur doing once youve chosen the exercise based off previous sessions with it or maybe 
+some algo/data from bmi or internet, however it will check ur past sessions and sometimes prompt/ask about increasing the weight if
+ youve done the same for a lot of sessions.
+
+start with making the logging sessions part so you can adapt the code to display it in various ways later and you can start loggin your
+ workouts as example data right away
