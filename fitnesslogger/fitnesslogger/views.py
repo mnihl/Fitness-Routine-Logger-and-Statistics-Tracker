@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
+from fitnesslogger.models import UserProfile
 
 def welcome(request):
     return render(request, "fitnesslogger/welcome.html")
@@ -24,8 +24,10 @@ def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("login")
+            user = form.save()
+            UserProfile.objects.create(user=user)
+            login(request, user)
+            return redirect("home")
         else:
             form = UserCreationForm()
     return render(request, "fitnesslogger/register.html", {"form": form})
