@@ -2,5 +2,5 @@
   <h1>User Profile</h1>
   <p>Username: {{ userprofile.user.username }}</p>
   <a href="{%url 'home' %}">Go back</a>
-  <a href="{%url 'create_routine' %}">Create Routine</a>
+  <a href="{%url 'routines:create_routine' %}">Create Routine</a>
 {% endblock %}

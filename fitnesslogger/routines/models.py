@@ -1,11 +1,16 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from fitnesslogger.models import UserProfile
 
 
 # Create your models here.
 class Routine(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(blank = True)
+
+    def __str__(self):
+        return self.name
 
 class Exercise(models.Model):
     routine = models.ForeignKey(Routine, on_delete=models.CASCADE)
