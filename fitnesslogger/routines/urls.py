@@ -5,5 +5,6 @@ from . import views
 app_name = 'routines' 
 urlpatterns = [
     path("create/", views.create_routine, name = "create_routine"),
-    path("create/add_exercise/<int:routine_id>/", views.add_exercise, name = "add_exercise")
+    path("create/add_exercise/<int:routine_id>/", views.add_exercise, name = "add_exercise"),
+    path("detail/<int:routine_id>/", views.routine_detail, name="routine_detail"),
 ]

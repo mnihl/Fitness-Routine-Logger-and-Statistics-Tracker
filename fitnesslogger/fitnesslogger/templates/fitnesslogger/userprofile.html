@@ -1,6 +1,14 @@
 {% block content %}
   <h1>User Profile</h1>
   <p>Username: {{ userprofile.user.username }}</p>
+  <p>Routines:</p>
+  <ul>
+    {% for routine in routines %}
+      <li><a href="{%url 'routines:routine_detail' routine.id %}">{{ routine.name }}</a> - {{ routine.description }}</li>
+      {%empty%}
+      <li>No routines created yet</li>
+    {% endfor %}
+  </ul>
   <a href="{%url 'home' %}">Go back</a>
   <a href="{%url 'routines:create_routine' %}">Create Routine</a>
 {% endblock %}

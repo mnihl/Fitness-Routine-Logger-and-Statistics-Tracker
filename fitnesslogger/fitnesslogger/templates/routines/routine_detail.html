@@ -1,0 +1,16 @@
+{% block content %}
+  <h1>{{ routine.name }}</h1>
+  <p>{{ routine.description }}</p>
+
+  <h2>Exercises</h2>
+  <ul>
+    {% for exercise in exercises %}
+      <li>{{ exercise.name }}: {{ exercise.min_sets }}-{{ exercise.max_sets }} sets, {{ exercise.min_reps }}-{{ exercise.max_reps }} reps</li>
+    {% empty %}
+      <li>No exercises in this routine.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'routines:add_exercise' routine.id %}">Add Exercises</a>
+  <a href="{%url 'profile' %}">Go back</a>
+{% endblock %}

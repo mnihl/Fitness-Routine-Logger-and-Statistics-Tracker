@@ -5,7 +5,7 @@ from fitnesslogger.models import UserProfile
 
 # Create your models here.
 class Routine(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, default = 1)
     name = models.CharField(max_length=100)
     description = models.TextField(blank = True)
 
