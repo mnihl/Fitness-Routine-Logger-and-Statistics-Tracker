@@ -26,5 +26,6 @@ urlpatterns = [
     path("login/", views.login_view, name = "login"),
     path("register/", views.register_view, name = "register"),
     path("profile/", views.userprofile, name = "profile"),
-    path("routines/", include("routines.urls", namespace = "routines"))
+    path("routines/", include("routines.urls", namespace = "routines")),
+    path("logs/", include("logs.urls", namespace = "logs")),
 ]

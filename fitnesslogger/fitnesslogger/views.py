@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from fitnesslogger.models import UserProfile
 from routines.models import Routine, Exercise
+from logs.models import WorkoutLog, ExerciseLog
 
 def welcome(request):
     return render(request, "fitnesslogger/welcome.html")
@@ -36,7 +37,9 @@ def register_view(request):
 def userprofile(request):
     userprofile = UserProfile.objects.get(user = request.user)
     routines = Routine.objects.filter(user = userprofile)
-    return render(request, "fitnesslogger/userprofile.html", {"userprofile": userprofile, "routines": routines})
+    logs = WorkoutLog.objects.filter(user = userprofile)  
+    print(logs)
+    return render(request, "fitnesslogger/userprofile.html", {"userprofile": userprofile, "routines": routines, "logs": logs})
 
 @login_required
 def home(request):

@@ -1,0 +1,9 @@
+{% load static %}
+{% block content %}
+  <h1>Workout Log for {{ workout_log.routine.name }} on {{ workout_log.date }}</h1>
+  <ul>
+    {% for entry in entries %}
+      <li>{{ entry.exercise.name }}: {{ entry.sets }} sets of {{ entry.reps }} reps at {{ entry.weight }} kg - {% if entry.completed %}Completed{% else %}Not Completed{% endif %}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

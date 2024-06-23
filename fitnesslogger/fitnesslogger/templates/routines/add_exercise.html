@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 </head>
 <body>
     <h1>Add Exercises to {{ routine.name }}</h1>
-    <a href="{% url 'routines:create_routine' %}">Go back</a>
+    <a href="{%url 'routines:routine_detail' routine.id %}">Go back</a>
     <form method="post">
         {% csrf_token %}
         {{ formset.management_form }}

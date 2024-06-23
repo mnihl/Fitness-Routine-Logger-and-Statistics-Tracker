@@ -1,10 +1,16 @@
+{% load static %}
 {% block content %}
   <h1>User Profile</h1>
   <p>Username: {{ userprofile.user.username }}</p>
   <p>Routines:</p>
   <ul>
     {% for routine in routines %}
-      <li><a href="{%url 'routines:routine_detail' routine.id %}">{{ routine.name }}</a> - {{ routine.description }}</li>
+      <li><a href="{%url 'routines:routine_detail' routine.id %}">{{ routine.name }}</a> - {{ routine.description }} <a href="{% url 'logs:create_log' routine.id %}">Log a workout</a></li>
+      {% for log in logs %}
+        <a href="{% url 'logs:log' log.id %}">Log on {{log.date}}</a>
+        {%empty%}
+        <li>No logs for this routine.</li>
+      {% endfor %}
       {%empty%}
       <li>No routines created yet</li>
     {% endfor %}

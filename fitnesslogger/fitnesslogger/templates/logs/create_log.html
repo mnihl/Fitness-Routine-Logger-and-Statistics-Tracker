@@ -1,0 +1,14 @@
+{% load static %}
+{% block content %}
+  <h1>Create Workout Log for {{ routine.name }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ workout_log_form.as_p }}
+    {{ formset.management_form }}
+    {% for form in formset %}
+      {{ form.as_p }}
+    {% endfor %}
+    <button type="submit">Save Workout Log</button>
+    <a href="{%url 'profile' %}">Go back</a>
+  </form>
+{% endblock %}
